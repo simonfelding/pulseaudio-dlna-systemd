@@ -1,0 +1,12 @@
+[Unit]
+Description=PulseAudio system server
+Requires=sound.target dbus.service
+After=sound.target dbus.service
+
+[Service]
+Type=notify
+ExecStart=pulseaudio --daemonize=no --system --realtime
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
